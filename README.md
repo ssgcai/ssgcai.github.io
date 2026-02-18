@@ -1,2 +1,2 @@
-# caigu.github.io
+# ssgcai.github.io
 wedding website
