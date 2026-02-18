@@ -1,0 +1,68 @@
+:root {
+  --bg: #fafafa;
+  --text: #222;
+  --accent: #7a5cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+}
+
+.date {
+  opacity: 0.7;
+}
+
+h2 {
+  margin-top: 2.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.grid a {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.grid a:hover {
+  background: #f0f0f0;
+}
+
+footer {
+  text-align: center;
+  margin-top: 4rem;
+  opacity: 0.6;
+}
+
