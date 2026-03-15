@@ -563,6 +563,7 @@ footer {
   .hero-kicker {
     display: inline-flex;
     align-items: center;
+    justify-self: start;
     margin: 0;
     padding: 0.18rem 0.48rem;
     border-radius: 999px;
@@ -586,6 +587,15 @@ footer {
 
   .home-title-swap {
     display: block;
+  }
+
+  .home-hero .hero-text {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .home-hero .hero-kicker {
+    justify-self: center;
   }
 
   .title-sizer,
