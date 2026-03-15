@@ -3,61 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wedding Details · Grace & Alex</title>
+  <title>Schedule · Grace & Alex</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero-header">
-    <img src="assets/squish.jpg" alt="Grace & Alex" class="hero-img" />
+  <header class="hero-header details-hero">
+    <img src="assets/details_header.png" alt="Grace & Alex" class="hero-img" />
     <div class="hero-text">
-      <h1>Wedding Details</h1>
-      <p class="date">October 12, 2026</p>
+      <p class="hero-kicker">Shasta View Lodge</p>
+      <h1>Schedule</h1>
+      <p class="date">October 11-14, 2026</p>
     </div>
   </header>
 
+  <nav class="page-nav page-nav-after-hero" aria-label="Site sections">
+    <a href="index.html">Home</a>
+    <a href="lodge.html">Lodge</a>
+    <a href="details.html" aria-current="page">Schedule</a>
+    <a href="rsvp.html">RSVP</a>
+    <a href="travel.html">Travel</a>
+    <a href="faq.html">FAQ</a>
+    <a href="secret.html">Secret</a>
+  </nav>
+
   <main class="container">
-    <section id="retreat">
-      <h2>Wedding Retreat</h2>
-      <p>
-        We are happy to invite you to stay with us at <strong>Shasta View Lodge</strong> from <strong>Oct 11-14, 2026</strong>.  
-        Address: 140 Squaw Valley Rd, McCloud, CA 96057
-      </p>
-      <p>Housing is provided for everyone under 30.</p>
+    <section class="details-card">
+      <h2>Schedule</h2>
+
+      <div class="timeline-tabs" data-day-tabs>
+        <div class="tab-list" role="tablist" aria-label="Timeline days">
+          <button
+            class="tab-button is-active"
+            type="button"
+            role="tab"
+            id="tab-sunday"
+            aria-selected="true"
+            aria-controls="day-sunday"
+            data-tab-target="day-sunday"
+          >
+            Sunday
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            role="tab"
+            id="tab-monday"
+            aria-selected="false"
+            aria-controls="day-monday"
+            data-tab-target="day-monday"
+            tabindex="-1"
+          >
+            Monday
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            role="tab"
+            id="tab-tuesday"
+            aria-selected="false"
+            aria-controls="day-tuesday"
+            data-tab-target="day-tuesday"
+            tabindex="-1"
+          >
+            Tuesday
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            role="tab"
+            id="tab-wednesday"
+            aria-selected="false"
+            aria-controls="day-wednesday"
+            data-tab-target="day-wednesday"
+            tabindex="-1"
+          >
+            Wednesday
+          </button>
+        </div>
+
+        <article class="event-item tab-panel is-active" id="day-sunday" role="tabpanel" aria-labelledby="tab-sunday">
+          <h3>Sunday</h3>
+          <p><strong>4:00 PM</strong> · Check-in</p>
+          <p class="event-note">If you're staying with us, get settled in your cabin. Everyone is welcome to explore the lodge :D</p>
+          <p><strong>6:00 PM</strong> · Welcome dinner</p>
+          <p><strong>7:30 PM</strong> · Murder mystery >:)</p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">Escape room style murder mystery 👀 with weird prizes and probably dessert.</span>
+            <img
+              class="event-note-image"
+              src="assets/murder_mystery.png"
+              alt="Murder mystery suspect board"
+            />
+          </p>
+        </article>
+
+        <article class="event-item tab-panel" id="day-monday" role="tabpanel" aria-labelledby="tab-monday" hidden>
+          <h3>Monday</h3>
+          <p>Exploration day and optional activities around Mt. Shasta. Schedule TBD.</p>
+          <p><strong>We invite guests to host their own activity if they're interested. Submit your idea <a href="#" aria-label="Placeholder link for activity submission form">here</a>.</strong> Potential activities include:</p>
+          <p class="activity-name"><strong>Relationship Quiz</strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">Secrets of Grace and Alex</span>
+            <img
+              class="event-note-image"
+              src="assets/quiz.png"
+              alt="Relationship quiz sample question"
+            />
+          </p>
+          <p class="activity-name"><strong>Alex Plays Piano</strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">A small piano performance by Alex.</span>
+            <img
+              class="event-note-image"
+              src="assets/alex_piano.jpg"
+              alt="Alex at the piano"
+            />
+          </p>
+          <p class="activity-name"><strong>Partner Acrobatics</strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">Grab a partner or friend and do some:</span>
+            <img
+              class="event-note-image"
+              src="assets/partner_acrobatics.webp"
+              alt="A funny acroyoga throne pose"
+            />
+          </p>
+          <p class="activity-name"><strong><a href="https://www.alltrails.com/en-gb/trail/us/california/heart-lake-trail-from-castle-lake">Heart Lake</a></strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">A lake shaped like a heart &lt;3</span>
+            <img
+              class="event-note-image heart-lake-image"
+              src="assets/heart_lake.jpeg"
+              alt="Heart Lake"
+            />
+          </p>
+          <p class="activity-name"><strong><a href="https://www.alltrails.com/trail/us/california/mccloud-waterfalls-trail--2">McCloud Falls</a></strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">See some cute waterfalls nearby.</span>
+            <img
+              class="event-note-image"
+              src="assets/mccloud_falls.webp"
+              alt="McCloud Falls"
+            />
+          </p>
+          <p class="activity-name"><strong>Art Activity w/ Grace</strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">No art skills needed</span>
+            <img
+              class="event-note-image"
+              src="assets/art.avif"
+              alt="Art activity example"
+            />
+          </p>
+          <p class="activity-name"><strong>Darkness Retreat</strong></p>
+          <p class="event-note partner-note">
+            <span class="event-note-text">Exactly what it sounds like.</span>
+            <img
+              class="event-note-image"
+              src="assets/darkness.png"
+              alt="Darkness retreat example"
+            />
+          </p>
+        </article>
+
+        <article class="event-item tab-panel" id="day-tuesday" role="tabpanel" aria-labelledby="tab-tuesday" hidden>
+          <h3>Tuesday</h3>
+          <p>Wedding Day!!! More details to come.</p>
+          <p><strong>3:00 PM</strong> · Ceremony</p>
+          <p class="event-note">Getting married with Mt. Shasta in the background ⛰️</p>
+          <p><strong>5:30 PM</strong> · Dinner and Celebration</p>
+        </article>
+
+        <article class="event-item tab-panel" id="day-wednesday" role="tabpanel" aria-labelledby="tab-wednesday" hidden>
+          <h3>Wednesday</h3>
+          <p><strong>9:00 AM</strong> · Farewell brunch</p>
+          <p class="event-note">One last meal together 🍳</p>
+          <p><strong>11:00 AM</strong> · Check out</p>
+        </article>
+      </div>
     </section>
-
-	<section id="timing">
-	  <h2>Retreat Timeline</h2>
-	  <p>We can’t wait to celebrate with you! Here’s what to expect:</p>
-
-	  <ul>
-		<li><strong>Sunday</strong> – <em>Welcome Dinner</em> at 7:00 PM 
-		  Kick off the weekend with dinner and fun activities.
-		</li>
-		
-		<li><strong>Monday</strong> – <em>Exploration & Activities</em>  
-		  Explore the Mt. Shasta area and participate in optional retreat activities.
-		</li>
-
-		<li><strong>Tuesday</strong> – <em>Ceremony & Reception</em>  
-		  <ul>
-		    <li>3:00 PM – Ceremony</li>
-		    <li>5:30 PM – Dinner</li>
-		    <li>7:00 PM – Celebration</li>
-		  </ul>
-		</li>
-
-		<li><strong>Wednesday</strong> – <em>Farewell Brunch</em> at 11:00 AM  
-		  Join us for one last meal together before heading home.
-		</li>
-	  </ul>
-	</section>
-
-    <p><a href="index.html">← Back to Home</a></p>
   </main>
 
   <footer>
-    <p>❤️ Grace & [Name]</p>
+    <p>❤️ Grace & Alex</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
-
