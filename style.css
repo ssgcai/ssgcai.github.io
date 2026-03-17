@@ -502,6 +502,10 @@ h2 {
   border-radius: 12px;
 }
 
+.murder-mystery-image {
+  width: min(360px, 100%);
+}
+
 .heart-lake-image {
   height: 180px;
   object-fit: cover;
