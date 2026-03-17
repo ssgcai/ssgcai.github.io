@@ -199,6 +199,27 @@ body {
   .secret-hero {
     aspect-ratio: 4.8 / 1;
   }
+
+  .details-hero .hero-text,
+  .secret-hero .hero-text {
+    padding: 0.8rem 1.1rem;
+    border-radius: 18px;
+  }
+
+  .details-hero .hero-kicker,
+  .secret-hero .hero-kicker {
+    font-size: 0.74rem;
+  }
+
+  .details-hero .hero-text h1,
+  .secret-hero .hero-text h1 {
+    font-size: clamp(2.1rem, 3.6vw, 2.55rem);
+  }
+
+  .details-hero .hero-text .date,
+  .secret-hero .hero-text .date {
+    font-size: clamp(1rem, 1.8vw, 1.08rem);
+  }
 }
 
 /* Optional: make grid links a bit lighter on the hero photo */
