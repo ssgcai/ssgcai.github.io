@@ -140,6 +140,11 @@ body {
   background: rgba(155, 155, 155, 0.28);
 }
 
+.details-hero .hero-text,
+.secret-hero .hero-text {
+  padding: 1.15rem 1.65rem;
+}
+
 .faq-hero .hero-text {
   background: rgba(0, 0, 0, 0.24);
   border-color: rgba(255, 255, 255, 0.22);
@@ -192,6 +197,16 @@ body {
 .hero-text .date {
   font-size: 1.25rem;
   opacity: 0.9;
+}
+
+.details-hero .hero-text h1,
+.secret-hero .hero-text h1 {
+  font-size: 3.15rem;
+}
+
+.details-hero .hero-text .date,
+.secret-hero .hero-text .date {
+  font-size: 1.3rem;
 }
 
 @media (max-width: 1100px) {
