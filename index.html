@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grace & Alex</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    .guest-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .guest-link-card { display: block; padding: 1.25rem; border: 1px solid #dbe6dc; border-radius: 18px; background: linear-gradient(145deg, #fff 5%, #f3f8f2 100%); color: inherit; text-align: center; text-decoration: none; box-shadow: 0 12px 28px rgba(34, 57, 45, .07); transition: transform .18s ease, box-shadow .18s ease; }
+    .guest-link-card:hover, .guest-link-card:focus-visible { transform: translateY(-3px); box-shadow: 0 16px 32px rgba(34, 57, 45, .12); }
+    .guest-link-icon { display: grid; place-items: center; width: 3rem; height: 3rem; margin: 0 auto .65rem; border-radius: 50%; background: #e8f1e7; color: #315b45; font-size: 1.45rem; }
+    .guest-link-card h3 { margin: 0 0 .35rem; color: #244c3c; font-family: Georgia, serif; }
+    .guest-link-card p { margin: 0 0 .8rem; color: #59665f; font-size: .92rem; }
+    .guest-link-action { display: inline-block; padding: .55rem .95rem; border: 1px solid #9eb5a2; border-radius: 999px; background: #fff; color: #315b45; font-size: .88rem; font-weight: 650; }
+    @media (max-width: 560px) { .guest-links { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
   <header class="hero-header home-hero">
@@ -22,9 +32,8 @@
 
   <nav class="page-nav page-nav-after-hero" aria-label="Site sections">
     <a href="index.html" aria-current="page">Home</a>
-    <a href="lodge.html">Lodge</a>
+    <a href="cabins.html">Cabins</a>
     <a href="details.html">Schedule</a>
-    <a href="rsvp.html">RSVP</a>
     <a href="travel.html">Travel</a>
     <a href="faq.html">FAQ</a>
     <a href="secret.html">Secret</a>
@@ -37,6 +46,26 @@
         We’re so excited to celebrate with you.  
         This site has the important details—and a few surprises.
       </p>
+    </section>
+    <section class="guest-links" aria-label="Guest links">
+      <a class="guest-link-card" href="https://docs.google.com/spreadsheets/d/1bPJeKcHc6iZAnsy08dNk1mBwZSXN3ho1ooRwyrqAazA/edit?gid=0#gid=0" target="_blank" rel="noopener">
+        <span class="guest-link-icon" aria-hidden="true">👥</span>
+        <h3>Guest Contact List</h3>
+        <p>Find everyone’s contact details in one place.</p>
+        <span class="guest-link-action">Open the list ↗</span>
+      </a>
+      <a class="guest-link-card" href="https://photos.app.goo.gl/GwfEwcHa7WhLBUHm8" target="_blank" rel="noopener">
+        <span class="guest-link-icon" aria-hidden="true">📸</span>
+        <h3>Share Your Photos</h3>
+        <p>Add your favorite moments to our shared album.</p>
+        <span class="guest-link-action">Open the album ↗</span>
+      </a>
+      <a class="guest-link-card" href="https://docs.google.com/document/d/1xL66ycvI7SDrOwWSNDSwa8sMzc4tjxzjljouHsSEfws/edit?usp=sharing" target="_blank" rel="noopener">
+        <span class="guest-link-icon" aria-hidden="true">📖</span>
+        <h3>Guest Handbook</h3>
+        <p>Helpful notes for your stay and the celebration.</p>
+        <span class="guest-link-action">Read the handbook ↗</span>
+      </a>
     </section>
   </main>
 

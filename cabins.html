@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabin Assignments · Grace &amp; Alex</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { --pine: #294b3d; --moss: #71866b; --bark: #805c43; --cream: #fffaf0; --rose: #d99a88; }
+    body { background: #f5f0e5; color: #34473c; font-family: "Lato", "Trebuchet MS", "Segoe UI", sans-serif; }
+    .woods-hero { min-height: 0; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--cream); background: linear-gradient(180deg, #203e34 0%, #41634f 75%, #748660 100%); position: relative; overflow: hidden; }
+    .woods-hero::before, .woods-hero::after { content: "✦  ·  ✧     ·    ✦     ·  ✧"; position: absolute; color: #f4dfb4; opacity: .8; letter-spacing: 1.2rem; font-size: 1rem; top: 28px; left: 4%; right: 4%; }
+    .woods-hero::after { content: "♧       ♧         ♧       ♧"; top: auto; bottom: 8px; font-size: 2.2rem; letter-spacing: 2.5rem; color: #d8c39b; }
+    .woods-hero .hero-text { position: relative; z-index: 1; padding: 1.15rem 1.65rem; }
+    .woods-hero .hero-kicker { color: #f2d4a8; letter-spacing: .16em; text-transform: uppercase; font-size: .8rem; }
+    .woods-hero h1 { color: #fffaf0; font-family: "Chilanka", "Comic Sans MS", cursive; font-weight: 600; letter-spacing: .025em; font-size: clamp(2.3rem, 6vw, 4rem); margin: .2rem 0 .15rem; }
+    .woods-hero .date { color: #f4e8d2; margin: .25rem 0 0; }
+    @media (max-width: 1100px) { .woods-hero .hero-text { padding: .8rem 1.1rem; border-radius: 18px; } }
+    @media (max-width: 700px) { .woods-hero { align-items: flex-end; } }
+    .container { max-width: 1080px; }
+    .intro { text-align: center; margin: 2rem auto 1.1rem; }
+    .intro .section-kicker { color: #9a6f55; letter-spacing: .15em; text-transform: uppercase; font-size: .75rem; }
+    .intro h2 { color: var(--pine); font-family: "Chilanka", "Comic Sans MS", cursive; font-weight: 600; font-size: 2.1rem; margin: .35rem 0; }
+    .intro p:last-child { max-width: 560px; margin: .5rem auto; color: #68746a; }
+    .map { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.15rem; padding: .7rem 0 3rem; align-items: stretch; }
+    .cabin { --wall: #e8d9bd; --roof: #80604a; position: relative; isolation: isolate; overflow: visible; display: grid; grid-template-rows: auto 1fr auto; justify-items: center; padding: 48px 1rem 1rem; margin-top: 25px; min-height: 176px; text-align: center; }
+    .cabin::before { content: ""; position: absolute; z-index: -1; inset: 31px 0 0; background: linear-gradient(145deg, #fff8e9 0%, var(--wall) 72%); border: 1px solid #917a5e; border-radius: 5px 5px 12px 12px; box-shadow: 0 8px 16px #3e4c371c, inset 0 0 0 4px #fff9ee80; }
+    .cabin::after { content: ""; position: absolute; z-index: -1; top: 0; left: 3px; right: 3px; height: 47px; background: var(--roof); clip-path: polygon(50% 0, 100% 94%, 89% 94%, 50% 20%, 11% 94%, 0 94%); filter: drop-shadow(0 2px 1px #61452f55); }
+    .cabin h3 { margin: 1px 0 12px; color: #365143; font: 600 1.45rem "Chilanka", "Comic Sans MS", cursive; letter-spacing: .015em; }
+    .cabin-link { display: inline-flex; align-items: center; justify-content: center; gap: .3rem; min-width: 126px; margin: 0 0 .8rem; padding: .38rem .7rem; border: 1px solid #8b7355; border-radius: 999px; background: #f6ebd5; color: #5d4937; text-decoration: none; font-size: .82rem; font-weight: 700; transition: background .18s ease, transform .18s ease; }
+    .cabin-link:hover { background: #fff8e9; transform: translateY(-1px); }
+    .cabin-link:focus-visible { outline: 3px solid #8eab8b; outline-offset: 3px; }
+    .cabin > .rooms, .cabin > .cabin-rooms, .cabin > .cedar-rooms, .cabin > .stay-schedule { align-self: center; justify-self: stretch; margin: 0 0 .75rem; }
+    .rooms { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+    .stay-schedule { display: grid; gap: .35rem; }
+    .stay-row { display: grid; grid-template-columns: 5.2rem minmax(0, 1fr); align-items: center; gap: .3rem; }
+    .stay-label { color: #796347; font: 700 .76rem "Lato", "Trebuchet MS", "Segoe UI", sans-serif; }
+    .stay-row .room { padding: .18rem; }
+    .stay-row .room span { padding: .3rem .38rem; font-size: .88rem; }
+    .room { display: flex; flex-wrap: wrap; justify-content: center; gap: .25rem; padding: .25rem; background: #fffdf7a8; border: 1px solid #bba88b; border-radius: 9px; }
+    .room span { display: block; padding: .42rem .58rem; color: #39483d; background: #fffaf0; border: 1px solid #e6dac2; border-radius: 8px; font: 500 1rem "Lato", "Trebuchet MS", "Segoe UI", sans-serif; white-space: nowrap; }
+    .cabin:nth-child(3n+2), .cabin:nth-child(3n+3) { --wall: #ead6c6; --roof: #98695b; }
+    .cabin:nth-child(3n) { --wall: #dce0c9; --roof: #687a5d; }
+    .cabin:nth-child(8) { grid-column: 1 / -1; grid-row: 4; --wall: #e8d6b1; --roof: #685842; min-height: 156px; }
+    .cabin:nth-child(9) { grid-column: 2; grid-row: 3; }
+    .cabin:nth-child(8)::before { inset: 31px 0 0; }
+    .window { display: none; }
+    .window.left { left: 10px; } .window.right { right: 10px; }
+    .wide .window { top: 70px; }
+    .cedar-rooms { display: grid; width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
+    .cedar-room { padding: .45rem; background: #fffdf7b8; border: 1px solid #bba88b; border-radius: 9px; }
+    .cedar-room h4 { margin: 0 0 .4rem; color: #796347; font: 600 .86rem "Avenir Next", Avenir, "Segoe UI", sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .cabin-rooms { display: grid; width: 100%; gap: .35rem; }
+    .cabin-room { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); align-items: center; gap: .35rem; padding: .32rem; background: #fffdf7b8; border: 1px solid #c9b897; border-radius: 8px; }
+    .cabin-room h4 { margin: 0; color: #796347; font: 600 .77rem "Lato", "Trebuchet MS", "Segoe UI", sans-serif; letter-spacing: .04em; text-transform: uppercase; }
+    .cabin-room .rooms { gap: .25rem; }
+    .cabin-room .room { gap: .15rem; padding: .18rem; }
+    .cabin-room .room span { padding: .3rem .38rem; font-size: .88rem; }
+    .cedar-names { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem; }
+    .cedar-names .room { gap: .25rem; }
+    @media (max-width: 850px) { .map { gap: .85rem; } }
+    @media (max-width: 620px) { .map { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; } .cabin:nth-child(n) { grid-column: auto; grid-row: auto; } .cabin:nth-child(8) { grid-column: 1 / -1; } }
+    @media (max-width: 450px) { .map { grid-template-columns: 1fr; padding-inline: .6rem; } .cabin:nth-child(n) { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <header class="hero-header details-hero woods-hero">
+    <div class="hero-text"><p class="hero-kicker">A little place in the woods</p><h1>Cabin Assignments</h1><p class="date">Grace &amp; Alex · October 11–14, 2026</p></div>
+  </header>
+  <nav class="page-nav page-nav-after-hero" aria-label="Site sections">
+    <a href="index.html">Home</a><a href="cabins.html" aria-current="page">Cabins</a><a href="details.html">Schedule</a><a href="travel.html">Travel</a><a href="faq.html">FAQ</a><a href="secret.html">Secret</a>
+  </nav>
+  <main class="container">
+    <section class="intro"><p class="section-kicker">Welcome to the woods</p><h2>Find your cabin</h2><p>Little cabins, good company, and a few days together at Shasta View Lodge. Find your name below to see where you’ll be staying.</p></section>
+    <section class="map" aria-label="Cabin assignments">
+      <article class="cabin"><h3>Cabin 1</h3><div class="rooms"><div class="room"><span>Naman</span><span>Wen-Ding</span></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin1" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 2</h3><div class="rooms"><div class="room"><span>Ashley</span><span>Edward</span></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin2" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 3</h3><div class="stay-schedule"><div class="stay-row"><strong class="stay-label">Nights 1–2</strong><div class="rooms"><div class="room"><span>Ning</span></div></div></div><div class="stay-row"><strong class="stay-label">Night 3</strong><div class="rooms"><div class="room"><span>Peng</span><span>Heyi</span></div><div class="room"><span>Lily</span></div></div></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin3" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 4</h3><div class="rooms"><div class="room"><span>Laura</span><span>Jiahai</span></div><div class="room"><span>Allison</span></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin4" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 5</h3><div class="rooms"><div class="room"><span>Karen</span><span>Hizami</span></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin5" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 6</h3><div class="cabin-rooms"><section class="cabin-room"><h4>Room 1</h4><div class="rooms"><div class="room"><span>Spencer</span><span>Zoe</span></div></div></section><section class="cabin-room"><h4>Room 2</h4><div class="rooms"><div class="room"><span>Alan</span></div><div class="room"><span>Vincent</span></div></div></section></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin6" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 7</h3><div class="cabin-rooms"><section class="cabin-room"><h4>Room 1</h4><div class="rooms"><div class="room"><span>Matthew</span><span>Zawad</span></div></div></section><section class="cabin-room"><h4>Room 2</h4><div class="rooms"><div class="room"><span>William W</span></div><div class="room"><span>Kevin</span></div></div></section></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin7" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin wide"><h3>Cedar Cabin</h3><div class="cedar-rooms"><section class="cedar-room"><h4>Room 1</h4><div class="cedar-names"><div class="room"><span>Grace</span><span>Alex</span></div><div class="room"><span>Elizabeth</span></div></div></section><section class="cedar-room"><h4>Room 2</h4><div class="cedar-names"><div class="room"><span>Orlando</span></div><div class="room"><span>Aaron</span></div></div></section><section class="cedar-room"><h4>Room 3</h4><div class="cedar-names"><div class="room"><span>Kyle</span><span>William L</span></div><div class="room"><span>Leah</span></div></div></section></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cedarcabin" target="_blank" rel="noopener">Peek inside ↗</a></article>
+      <article class="cabin"><h3>Cabin 8</h3><div class="rooms"><div class="room"><span>Komo</span><span>Justine</span></div></div><a class="cabin-link" href="https://www.shastaviewlodge.com/cabin8" target="_blank" rel="noopener">Peek inside ↗</a></article>
+    </section>
+  </main>
+</body>
+</html>
