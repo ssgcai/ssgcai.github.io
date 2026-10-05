@@ -22,8 +22,14 @@
     .event-feature h4 { margin: 0; color: #244c3c; font-family: Georgia, serif; font-size: 1.35rem; }
     .event-feature .event-subtitle { margin: .3rem 0 .75rem; color: #53645d; }
     .event-feature.ceremony-feature { background: linear-gradient(135deg, #f5faf5, #e9f2e8); border-color: #cbdcc9; }
-    .event-feature.reception-feature { background: linear-gradient(135deg, #fff8f1, #f4e8dc); border-color: #e3cbb5; }
+    .event-feature.reception-feature { overflow: visible; z-index: 2; background: linear-gradient(135deg, #fff8f1, #f4e8dc); border-color: #e3cbb5; }
     .event-feature.breakfast-feature { background: linear-gradient(135deg, #fffaf0, #f5eddd); border-color: #e5d7b8; }
+    .person-hover { position: relative; display: inline-block; color: inherit; text-decoration: none; cursor: inherit; }
+    .person-hover:focus-visible { outline: 2px solid #71866b; outline-offset: 3px; border-radius: 2px; }
+    .person-hover-card { position: absolute; z-index: 100; bottom: calc(100% + .55rem); left: calc(100% - 1rem); display: block; width: 136px; padding: .4rem; border: 1px solid #e0d4c1; border-radius: 14px; background: #fffdfa; box-shadow: 0 10px 24px rgba(64, 55, 34, .2); opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(4px) scale(.98); transition: opacity .16s ease, transform .16s ease, visibility .16s ease; }
+    .person-hover:hover .person-hover-card, .person-hover:focus .person-hover-card { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .person-hover-card img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; }
+    .person-hover-card span { display: block; padding-top: .35rem; color: #53645d; font-size: .76rem; font-weight: 650; text-align: center; }
     .activity-card.checkout-card { grid-template-columns: 1fr; }
     .menu-intro { margin: .8rem 0 .45rem; color: #58675f; font-size: .92rem; }
     .menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; margin: 0; padding: 0; list-style: none; }
@@ -114,16 +120,17 @@
           <section class="event-feature dinner-feature">
             <p class="event-time">6:00 PM · Shasta View Patio</p>
             <h4>Welcome Dinner</h4>
-            <p class="event-subtitle">A Lao family-style feast, catered by <a href="https://www.restaurantji.com/ca/weed/phet-s-kitchen-pho-and-bbq-/" target="_blank" rel="noopener">Lao’der Phet’s Kitchen · Weed, CA ↗</a></p>
-            <p class="menu-intro">A little preview of the seven dishes—tap any to see what’s in it.</p>
+            <p class="event-subtitle">A Thai feast, catered by <a href="https://www.restaurantji.com/ca/mount-shasta/phuket-thai-cafe-/" target="_blank" rel="noopener">Phuket Thai Café</a></p>
+            <p class="menu-intro">A little preview of the menu—tap any dish to see what’s in it.</p>
             <ul class="menu-list">
-              <li><details><summary>Papaya Salad</summary><p>Shredded green papaya mixed with garlic, chili peppers, tomato, salt and lime juice, served with sliced cabbage.</p></details></li>
-              <li><details><summary>Chicken Laab</summary><p>Minced free-range chicken breast mixed with salt, rice powder, lime juice, chicken bouillon, cilantro and green onions; served on lettuce and topped with cucumber.</p></details></li>
-              <li><details><summary>Moke Gai</summary><p>Chicken mixed with fragrant herbs—often lemongrass and dill—then gently steamed, traditionally in banana leaves.</p></details></li>
-              <li><details><summary>Naam Toke · Sliced BBQ Tri-Tip</summary><p>Sliced BBQ tri-tip tossed with green onions, cilantro, sliced jalapeños, lime juice, salt, chicken bouillon and rice powder; served on lettuce and topped with cucumber.</p></details></li>
-              <li><details><summary>Soop Pak · Matsutake Mushroom</summary><p>A Lao-style warm vegetable and herb salad with matsutake mushrooms, aromatics and sesame.</p></details></li>
-              <li><details><summary>Lao Der Homemade Pork Sausage</summary><p>Free-range pork with ginger, lemongrass, garlic, shallots, kaffir lime leaves and Lao Der house spices.</p></details></li>
-              <li><details><summary>Lao Coconut Custard</summary><p>A tender, gently sweet custard made with coconut milk and eggs.</p></details></li>
+              <li><details><summary>Fresh Spring Roll</summary><p>Rice paper wrapped with shrimp, silver noodles and fresh vegetables, served with special peanut sauce.</p></details></li>
+              <li><details><summary>Koong Krabok</summary><p>Deep-fried wrapped shrimp, served with sweet and sour sauce.</p></details></li>
+              <li><details><summary>Keow Wan with Beef</summary><p>Green curry with bamboo shoots, red and green peppers, peas, beans, sweet basil and coconut milk.</p></details></li>
+              <li><details><summary>Kra Pow with Chicken</summary><p>Chicken sautéed in basil sauce with red and green peppers and sweet basil.</p></details></li>
+              <li><details><summary>Stuff Wing (Chicken)</summary><p>Deep-fried chicken wing stuffed with silver noodles, onions, ground chicken and cilantro, served with sweet and sour sauce.</p></details></li>
+              <li><details><summary>Pad Pak Laum Mit</summary><p>Mixed vegetables sautéed in bean sauce.</p></details></li>
+              <li><details><summary>Pad Kemau with Chicken</summary><p>Stir-fried wide noodles in garlic sauce with tomatoes, peppers, mint and basil, served over lettuce and bean sprouts.</p></details></li>
+              <li><details><summary>Coconut Sticky Rice</summary><p>A sweet coconut rice dessert.</p></details></li>
             </ul>
           </section>
           <section class="activity-card">
@@ -146,17 +153,16 @@
           <section class="event-feature reception-feature">
             <p class="event-time">5:30 PM · Shasta View Patio</p>
             <h4>Reception</h4>
-            <p class="event-subtitle">Dinner catered by <a href="https://www.restaurantji.com/ca/mount-shasta/phuket-thai-cafe-/" target="_blank" rel="noopener">Phuket Thai Café ↗</a>, with cake by Allison Borton</p>
-            <p class="menu-intro">Here’s what’s on the menu—tap any dish to see what’s in it.</p>
+            <p class="event-subtitle">A Lao family-style feast, catered by <a href="https://www.restaurantji.com/ca/weed/phet-s-kitchen-pho-and-bbq-/" target="_blank" rel="noopener">Lao’der Phet’s Kitchen</a>, with cake by <span class="person-hover" tabindex="0" aria-describedby="allison-photo-caption">Allison Borton<span class="person-hover-card"><img src="assets/allison-borton.jpg" alt="Portrait of Allison Borton" /><span id="allison-photo-caption">Allison Borton</span></span></span></p>
+            <p class="menu-intro">A little preview of the seven dishes—tap any to see what’s in it.</p>
             <ul class="menu-list">
-              <li><details><summary>Fresh Spring Roll</summary><p>Rice paper wrapped with shrimp, silver noodles and fresh vegetables, served with special peanut sauce.</p></details></li>
-              <li><details><summary>Koong Krabok</summary><p>Deep-fried wrapped shrimp, served with sweet and sour sauce.</p></details></li>
-              <li><details><summary>Keow Wan with Beef</summary><p>Green curry with bamboo shoots, red and green peppers, peas, beans, sweet basil and coconut milk.</p></details></li>
-              <li><details><summary>Kra Pow with Chicken</summary><p>Chicken sautéed in basil sauce with red and green peppers and sweet basil.</p></details></li>
-              <li><details><summary>Stuff Wing (Chicken)</summary><p>Deep-fried chicken wing stuffed with silver noodles, onions, ground chicken and cilantro, served with sweet and sour sauce.</p></details></li>
-              <li><details><summary>Pad Pak Laum Mit</summary><p>Mixed vegetables sautéed in bean sauce.</p></details></li>
-              <li><details><summary>Pad Kemau with Chicken</summary><p>Stir-fried wide noodles in garlic sauce with tomatoes, peppers, mint and basil, served over lettuce and bean sprouts.</p></details></li>
-              <li><details><summary>Coconut Sticky Rice</summary><p>A sweet coconut rice dessert.</p></details></li>
+              <li><details><summary>Papaya Salad</summary><p>Shredded green papaya mixed with garlic, chili peppers, tomato, salt and lime juice, served with sliced cabbage.</p></details></li>
+              <li><details><summary>Chicken Laab</summary><p>Minced free-range chicken breast mixed with salt, rice powder, lime juice, chicken bouillon, cilantro and green onions; served on lettuce and topped with cucumber.</p></details></li>
+              <li><details><summary>Moke Gai</summary><p>Chicken mixed with fragrant herbs—often lemongrass and dill—then gently steamed, traditionally in banana leaves.</p></details></li>
+              <li><details><summary>Naam Toke · Sliced BBQ Tri-Tip</summary><p>Sliced BBQ tri-tip tossed with green onions, cilantro, sliced jalapeños, lime juice, salt, chicken bouillon and rice powder; served on lettuce and topped with cucumber.</p></details></li>
+              <li><details><summary>Soop Pak · Matsutake Mushroom</summary><p>A Lao-style warm vegetable and herb salad with matsutake mushrooms, aromatics and sesame.</p></details></li>
+              <li><details><summary>Lao Der Homemade Pork Sausage</summary><p>Free-range pork with ginger, lemongrass, garlic, shallots, kaffir lime leaves and Lao Der house spices.</p></details></li>
+              <li><details><summary>Lao Coconut Custard</summary><p>A tender, gently sweet custard made with coconut milk and eggs.</p></details></li>
             </ul>
           </section>
           <section class="activity-card"><div><p class="activity-time">9:00–10:00 PM · BBQ Area</p><h4>S’mores</h4><p class="activity-detail">Join us after dinner for s’mores and stargazing.</p></div><img src="assets/smores_photo.jpg" alt="Toasted marshmallows, chocolate, and graham crackers ready for s’mores" /></section>

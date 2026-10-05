@@ -23,22 +23,20 @@ document.querySelectorAll("[data-day-tabs]").forEach((tabRoot) => {
     });
   };
 
-  buttons.forEach((button, index) => {
+  buttons.forEach((button) => {
     button.addEventListener("click", () => activateTab(button));
-
-    button.addEventListener("keydown", (event) => {
-      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") {
-        return;
-      }
-
-      event.preventDefault();
-      const direction = event.key === "ArrowRight" ? 1 : -1;
-      const nextIndex = (index + direction + buttons.length) % buttons.length;
-      const nextButton = buttons[nextIndex];
-      nextButton.focus();
-      activateTab(nextButton);
-    });
   });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable='true']")) return;
+
+    event.preventDefault();
+    const activeIndex = buttons.findIndex((button) => button.getAttribute("aria-selected") === "true");
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const nextIndex = (activeIndex + direction + buttons.length) % buttons.length;
+    activateTab(buttons[nextIndex]);
+  }, true);
 
   const initiallyActiveButton =
     buttons.find((button) => button.getAttribute("aria-selected") === "true") || buttons[0];
