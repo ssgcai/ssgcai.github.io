@@ -35,7 +35,7 @@
     .activity-card.checkout-card { grid-template-columns: 1fr; }
     .menu-intro { margin: .8rem 0 .45rem; color: #58675f; font-size: .92rem; }
     .menu-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem; margin: 0; padding: 0; list-style: none; }
-    .menu-list details { height: 100%; border: 1px solid #e6dccb; border-radius: 10px; background: rgba(255,255,255,.72); }
+    .menu-list details { border: 1px solid #e6dccb; border-radius: 10px; background: rgba(255,255,255,.72); }
     .menu-list summary { padding: .55rem .65rem; color: #344e42; font-size: .9rem; font-weight: 650; cursor: pointer; }
     .menu-list details p { margin: 0; padding: 0 .65rem .65rem; color: #59665f; font-size: .82rem; line-height: 1.45; }
     .menu-list li:last-child:nth-child(odd) { grid-column: 1 / -1; }
@@ -170,7 +170,19 @@
 
         <article class="event-item tab-panel" id="day-wednesday" role="tabpanel" aria-labelledby="tab-wednesday" hidden>
           <h3>Wednesday</h3>
-          <section class="event-feature breakfast-feature"><p class="event-time">9:00 AM · Cedar Cabin</p><h4>Farewell Breakfast</h4><p class="event-subtitle">One last meal together 🍳 Food from the original Black Bear Diner in Mt. Shasta.</p></section>
+          <section class="event-feature breakfast-feature">
+            <p class="event-time">9:00 AM · Cedar Cabin</p>
+            <h4>Farewell Breakfast</h4>
+            <p class="event-subtitle">One last meal together 🍳 Food from the original Black Bear Diner in Mt. Shasta.</p>
+            <p class="menu-intro">Here’s a taste of breakfast—tap any item to see what’s in it.</p>
+            <ul class="menu-list">
+              <li><details><summary>The Grizz</summary><p>Scrambled eggs, country potatoes, thick-cut smoked bacon, link sausages, smoked ham, French toast and buttermilk biscuits.</p></details></li>
+              <li><details><summary>Fresh Fruit Bowl</summary><p>Fresh-cut melon with grapes and sliced strawberries.</p></details></li>
+              <li><details><summary>Bear Claw Platter</summary><p>Flaky, buttery pastries with classic almond and berry fillings.</p></details></li>
+              <li><details><summary>Blackberry Cobbler</summary><p>Homemade blackberry filling topped with a buttery crust.</p></details></li>
+              <li><details><summary>Apple Cobbler</summary><p>Sweet apple filling topped with a buttery crust.</p></details></li>
+            </ul>
+          </section>
           <section class="activity-card checkout-card"><div><p class="activity-time">11:00 AM · Shasta View Lodge</p><h4>Check-out</h4><p class="activity-detail">Thanks for making the trip—safe travels!</p></div></section>
         </article>
       </div>
